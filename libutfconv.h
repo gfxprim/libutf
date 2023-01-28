@@ -109,13 +109,14 @@ enum lu_enc {
 	LU_CP1257, /* Baltic */
 	LU_CP1258, /* Vietnamese */
 	LU_ENC_CNT,
+	LU_ENC_ERR=LU_ENC_CNT,
 };
 
 /**
  * @brief Looks up for encoding by a name.
  *
  * @enc_name An encoding name e.g. "cp1250"
- * @return An encoding type or LU_NONE if no match was found.
+ * @return An encoding type or LU_ENC_ERR if no match was found.
  */
 enum lu_enc lu_name_to_enc(const char *enc_name);
 

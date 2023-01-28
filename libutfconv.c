@@ -29,7 +29,7 @@ enum lu_enc lu_name_to_enc(const char *enc_name)
 			return i;
 	}
 
-	return LU_NONE;
+	return LU_ENC_ERR;
 }
 
 const char *lu_enc_to_name(enum lu_enc enc)
