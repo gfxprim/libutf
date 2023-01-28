@@ -164,6 +164,19 @@ static inline uint16_t lu_to_utf(enum lu_enc enc, uint8_t cp)
 }
 
 /**
+ * @brief Returns number of bytes needed for a character after utf8 conversion.
+ *
+ * @enc An encoding.
+ * @cp A character.
+ *
+ * @return A number of bytes needed for the character in utf8.
+ */
+static inline uint8_t lu_to_utf8_bytes(enum lu_enc enc, uint8_t cp)
+{
+	return lu_utf8_bytes(lu_to_utf(enc, cp));
+}
+
+/**
  * @brief Counts number of bytes needed for a string after conversion to utf8.
  *
  * @str A string.
