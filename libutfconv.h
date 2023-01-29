@@ -135,7 +135,7 @@ const char *lu_enc_to_name(enum lu_enc enc);
  * @cp Input character.
  * @return An unicode character or zero if there is no mapping.
  */
-static inline uint16_t lu_to_utf(enum lu_enc enc, uint8_t cp)
+static inline uint16_t lu_to_utf(uint8_t cp, enum lu_enc enc)
 {
 	switch (enc) {
 	case LU_NONE:
@@ -171,9 +171,9 @@ static inline uint16_t lu_to_utf(enum lu_enc enc, uint8_t cp)
  *
  * @return A number of bytes needed for the character in utf8.
  */
-static inline uint8_t lu_to_utf8_bytes(enum lu_enc enc, uint8_t cp)
+static inline uint8_t lu_to_utf8_bytes(uint8_t cp, enum lu_enc enc)
 {
-	return lu_utf8_bytes(lu_to_utf(enc, cp));
+	return lu_utf8_bytes(lu_to_utf(cp, enc));
 }
 
 /**
@@ -203,6 +203,6 @@ void lu_to_utf8_cpy(const char *src, char *dest, enum lu_enc enc);
  *
  * @return Newly allocated buffer with converted string.
  */
-char *lu_to_utf8_alloc(const char *src, enum lu_enc);
+char *lu_to_utf8_alloc(const char *src, enum lu_enc enc);
 
 #endif /* LIB_UTF_CONV_H */

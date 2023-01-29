@@ -45,7 +45,7 @@ size_t lu_to_utf8_size(const char *str, enum lu_enc enc)
 	size_t len = 1;
 
 	while (*str) {
-		len += lu_to_utf8_bytes(enc, *str);
+		len += lu_to_utf8_bytes(*str, enc);
 		str++;
 	}
 
