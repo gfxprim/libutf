@@ -184,7 +184,7 @@ static inline uint8_t lu_to_utf8_bytes(enum lu_enc enc, uint8_t cp)
  *
  * @return A number of bytes including space for the null terminating byte.
  */
-size_t lu_to_utf8_len(const char *str, enum lu_enc enc);
+size_t lu_to_utf8_size(const char *str, enum lu_enc enc);
 
 /**
  * @brief Converts a string into utf8.

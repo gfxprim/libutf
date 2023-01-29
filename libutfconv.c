@@ -40,7 +40,7 @@ const char *lu_enc_to_name(enum lu_enc enc)
 	return enc_names[enc];
 }
 
-size_t lu_to_utf8_len(const char *str, enum lu_enc enc)
+size_t lu_to_utf8_size(const char *str, enum lu_enc enc)
 {
 	size_t len = 1;
 
@@ -63,7 +63,7 @@ void lu_to_utf8_cpy(const char *src, char *dest, enum lu_enc enc)
 
 char *lu_to_utf8_alloc(const char *src, enum lu_enc enc)
 {
-	char *ret = malloc(lu_to_utf8_len(src, enc));
+	char *ret = malloc(lu_to_utf8_size(src, enc));
 
 	if (!ret)
 		return NULL;
