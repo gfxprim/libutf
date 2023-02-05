@@ -7,6 +7,7 @@
 #define LIB_UTF_H
 
 #include <libutfconv.h>
+#include <libutfcase.h>
 #include <libutf8.h>
 
 #endif /* LIB_UTF_H */

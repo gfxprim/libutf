@@ -6,6 +6,8 @@ LIBDIR?=$(PREFIX)/lib
 BINDIR?=$(PREFIX)/bin
 INCLUDEDIR?=$(PREFIX)/include
 
+all: build
+
 include proj.mk
 
 LIB_OBJS=$(subst .c,.o,$(LIB_SRCS))
@@ -18,7 +20,7 @@ LIB_FILE=$(LIB_SONAME).0.0
 BIN_OBJS=$(subst .c,.o,$(BIN_SRCS))
 BIN_DEPS=$(subst .c,.dep,$(BIN_SRCS))
 
-all: $(BIN) $(LIB_FILE) $(LIB_SONAME) $(LIB_NAME) $(LIB_SNAME)
+build: $(BIN) $(LIB_FILE) $(LIB_SONAME) $(LIB_NAME) $(LIB_SNAME)
 
 $(LIB_OBJS): CFLAGS+=-fPIC
 $(LIB_FILE): LDLIBS+=$(LIB_LDLIBS)
@@ -60,4 +62,4 @@ install:
 	[ -z "$(BIN)" ] || install $(BIN) -t $(DESTDIR)/$(BINDIR)
 
 clean:
-	rm -f $(LIB_NAME) $(LIB_SONAME) $(LIB_FILE) $(LIB_SNAME) $(LIB_OBJS) $(BIN) $(BIN_OBJS) $(LIB_DEPS) $(BIN_DEPS) config.mk
+	rm -f $(CLEAN) $(LIB_NAME) $(LIB_SONAME) $(LIB_FILE) $(LIB_SNAME) $(LIB_OBJS) $(BIN) $(BIN_OBJS) $(LIB_DEPS) $(BIN_DEPS) config.mk
